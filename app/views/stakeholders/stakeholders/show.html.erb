@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @stakeholder %>
+
+<div>
+  <%= link_to "Edit this stakeholder", edit_stakeholder_path(@stakeholder) %> |
+  <%= link_to "Back to stakeholders", stakeholders_path %>
+
+  <%= button_to "Destroy this stakeholder", @stakeholder, method: :delete %>
+</div>

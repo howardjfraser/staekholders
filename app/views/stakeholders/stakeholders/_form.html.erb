@@ -1,0 +1,32 @@
+<%= form_with(model: stakeholder) do |form| %>
+  <% if stakeholder.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(stakeholder.errors.count, "error") %> prohibited this stakeholder from being saved:</h2>
+
+      <ul>
+        <% stakeholder.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :party, style: "display: block" %>
+    <%= form.text_field :party %>
+  </div>
+
+  <div>
+    <%= form.label :faction, style: "display: block" %>
+    <%= form.text_field :faction %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

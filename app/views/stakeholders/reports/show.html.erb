@@ -1,0 +1,18 @@
+<h1>Report</h1>
+
+<%= render partial: 'stakeholders/shared/view_toggle' %>
+
+<%= form_with model: @search, url: report_path, scope: :search, method: :get,
+  data: {
+    controller: 'auto-submit toggle-filter clear-form',
+    action: "input->auto-submit#submit"
+  } do |f| %>
+
+  <%= render partial: 'stakeholders/shared/search_bar', locals: { f: f } %>
+
+  <div style="display: flex;" >
+    <%= render partial: 'results', locals: { parties: @parties, factions: @factions } %>
+    <%= render partial: 'stakeholders/shared/filters', locals: { f: f } %>
+  </div>
+
+<% end %>

@@ -1,0 +1,8 @@
+<%= f.search_field :terms, placeholder: 'Search...' %>
+<%= link_to "Filters", "#", data: { action: "click->toggle-filter#toggle" }%>
+
+<% if @search.any? %>
+  <span>*</span>
+<% end %>
+
+<hr>

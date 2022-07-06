@@ -1,0 +1,6 @@
+<div class="hide" data-toggle-filter-target="filterPanel">
+  Party <%= f.select :party, Stakeholder::PARTIES, include_blank: 'All' %><br>
+  Faction <%= f.select :faction, Stakeholder::FACTIONS, include_blank: 'All' %><br>
+
+  <%= button_to "Clear", "#", class: 'btn btn-white btn-sm', data: { action: 'clear-form#clear'} %>
+</div>
