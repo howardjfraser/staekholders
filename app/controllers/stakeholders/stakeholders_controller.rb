@@ -3,7 +3,8 @@ class Stakeholders::StakeholdersController < ApplicationController
 
   # GET /stakeholders
   def index
-    @search = StakeholderSearch.new(search_params)
+    # gets search attribute hash from store
+    @search = StakeholderSearch.new(retrieve_search_attributes)
     @stakeholders = @search.search
   end
 
@@ -58,7 +59,7 @@ class Stakeholders::StakeholdersController < ApplicationController
     params.require(:stakeholder).permit(:name, :party, :faction)
   end
 
-  def search_params
-    params.permit(search: {})[:search]
+  def retrieve_search_attributes
+    { party: 'Labor' }
   end
 end

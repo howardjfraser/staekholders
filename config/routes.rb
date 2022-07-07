@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope :stakeholders do
     resource :report, module: :stakeholders, only: :show
+    resource :filter, module: :stakeholders, only: :update
   end
 
   resources :stakeholders, module: :stakeholders
