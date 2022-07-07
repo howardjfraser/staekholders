@@ -10,6 +10,10 @@ class Stakeholders::FiltersController < ApplicationController
   private
 
   def store_search_attributes
-    pp "%%% #{params.dig(:search)}"
+    current_user.stakeholder_search.update(**permitted_params.to_hash)
+  end
+
+  def permitted_params
+    params.require(:search).permit(:terms, :party, :faction)
   end
 end

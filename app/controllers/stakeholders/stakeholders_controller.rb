@@ -60,6 +60,6 @@ class Stakeholders::StakeholdersController < ApplicationController
   end
 
   def retrieve_search_attributes
-    { party: 'Labor' }
+    current_user.stakeholder_search.to_h
   end
 end
