@@ -4,7 +4,7 @@
 
 <%= form_with model: @search, url: filter_path, scope: :search, method: :patch,
   data: {
-    controller: 'auto-submit toggle-filter clear-form',
+    controller: 'auto-submit clear-form',
     action: "input->auto-submit#submit"
   } do |f| %>
 

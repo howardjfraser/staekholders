@@ -5,6 +5,7 @@ class StakeholderSearch
   attribute :terms, :string
   attribute :party, :string
   attribute :faction, :string
+  attribute :panel_open, :boolean
 
   def search
     result = Stakeholder.all
@@ -14,7 +15,7 @@ class StakeholderSearch
     result.sort_by(&:name)
   end
 
-  def any?
-    terms.present? || party.present? || faction.present?
+  def any_filters?
+    party.present? || faction.present?
   end
 end

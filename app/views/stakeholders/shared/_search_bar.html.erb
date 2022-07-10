@@ -1,7 +1,10 @@
 <%= f.search_field :terms, placeholder: 'Search...' %>
-<%= link_to "Filters", "#", data: { action: "click->toggle-filter#toggle" }%>
+<%= f.label :panel_open do %>
+  <%= f.check_box :panel_open %>
+  Filters
+<% end %>
 
-<% if @search.any? %>
+<% if @search.any_filters? %>
   <span>*</span>
 <% end %>
 

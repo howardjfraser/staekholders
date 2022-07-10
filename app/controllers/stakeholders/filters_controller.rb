@@ -14,6 +14,6 @@ class Stakeholders::FiltersController < ApplicationController
   end
 
   def permitted_params
-    params.require(:search).permit(:terms, :party, :faction)
+    params.require(:search).permit(:terms, :party, :faction, :panel_open)
   end
 end
