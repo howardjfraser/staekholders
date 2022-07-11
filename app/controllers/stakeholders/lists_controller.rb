@@ -4,18 +4,18 @@ class Stakeholders::ListsController < ApplicationController
   end
 
   def update
-    store_search_attributes
+    store_search_params
     create_list
     render :show
   end
 
   private
 
-  def store_search_attributes
+  def store_search_params
     current_user.stakeholder_search.update(**permitted_params.to_hash)
   end
 
-  def retrieve_search_attributes
+  def retrieve_search_params
     current_user.stakeholder_search.to_h
   end
 
@@ -24,7 +24,7 @@ class Stakeholders::ListsController < ApplicationController
   end
 
   def create_list
-    @search = StakeholderSearch.new(retrieve_search_attributes)
+    @search = StakeholderSearch.new(retrieve_search_params)
     @stakeholders = @search.search
   end
 end
