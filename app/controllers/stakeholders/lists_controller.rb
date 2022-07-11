@@ -1,14 +1,12 @@
-class Stakeholders::ReportsController < ApplicationController
+class Stakeholders::ListsController < ApplicationController
   def show
     @search = StakeholderSearch.new(retrieve_search_attributes)
-    stakeholders = @search.search
-    @parties = stakeholders.map(&:party).tally
-    @factions = stakeholders.map(&:faction).tally
+    @stakeholders = @search.search
   end
 
   def update
     store_search_attributes
-    redirect_to reports_url
+    redirect_to list_url
   end
 
   private

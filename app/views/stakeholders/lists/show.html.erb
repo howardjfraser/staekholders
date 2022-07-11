@@ -1,8 +1,8 @@
-<h1>Report</h1>
+<h1>List</h1>
 
 <%= render partial: 'stakeholders/shared/view_toggle' %>
 
-<%= form_with model: @search, url: report_path, scope: :search, method: :patch,
+<%= form_with model: @search, url: list_path, scope: :search, method: :patch,
   data: {
     turbo_frame:  :results,
     controller: 'auto-submit clear-form',
@@ -13,10 +13,9 @@
 
   <%= turbo_frame_tag 'results' do %>
     <div style="display: flex;" >
-      <%= render partial: 'results', locals: { parties: @parties, factions: @factions } %>
+      <%= render partial: 'results', locals: { stakeholders: @stakeholders } %>
       <%= render partial: 'stakeholders/shared/filters', locals: { f: f } %>
     </div>
-
-    <% end %>
+  <% end %>
 
 <% end %>

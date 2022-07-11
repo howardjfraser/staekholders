@@ -1,13 +1,6 @@
 class Stakeholders::StakeholdersController < ApplicationController
   before_action :set_stakeholder, only: %i[ show edit update destroy ]
 
-  # GET /stakeholders
-  def index
-    # gets search attribute hash from store
-    @search = StakeholderSearch.new(retrieve_search_attributes)
-    @stakeholders = @search.search
-  end
-
   # GET /stakeholders/1
   def show
   end
@@ -57,9 +50,5 @@ class Stakeholders::StakeholdersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def stakeholder_params
     params.require(:stakeholder).permit(:name, :party, :faction)
-  end
-
-  def retrieve_search_attributes
-    current_user.stakeholder_search.to_h
   end
 end
