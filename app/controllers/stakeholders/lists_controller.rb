@@ -1,12 +1,12 @@
 class Stakeholders::ListsController < ApplicationController
   def show
-    @search = StakeholderSearch.new(retrieve_search_attributes)
-    @stakeholders = @search.search
+    create_list
   end
 
   def update
     store_search_attributes
-    redirect_to list_url
+    create_list
+    render :show
   end
 
   private
@@ -21,5 +21,10 @@ class Stakeholders::ListsController < ApplicationController
 
   def permitted_params
     params.require(:search).permit(:terms, :party, :faction, :panel_open)
+  end
+
+  def create_list
+    @search = StakeholderSearch.new(retrieve_search_attributes)
+    @stakeholders = @search.search
   end
 end

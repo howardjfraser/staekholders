@@ -1,14 +1,12 @@
 class Stakeholders::ReportsController < ApplicationController
   def show
-    @search = StakeholderSearch.new(retrieve_search_attributes)
-    stakeholders = @search.search
-    @parties = stakeholders.map(&:party).tally
-    @factions = stakeholders.map(&:faction).tally
+    create_report
   end
 
   def update
     store_search_attributes
-    redirect_to reports_url
+    create_report
+    render :show
   end
 
   private
@@ -23,5 +21,12 @@ class Stakeholders::ReportsController < ApplicationController
 
   def permitted_params
     params.require(:search).permit(:terms, :party, :faction, :panel_open)
+  end
+
+  def create_report
+    @search = StakeholderSearch.new(retrieve_search_attributes)
+    stakeholders = @search.search
+    @parties = stakeholders.map(&:party).tally
+    @factions = stakeholders.map(&:faction).tally
   end
 end
