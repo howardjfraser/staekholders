@@ -10,8 +10,8 @@ class StakeholderSearch
   def search
     result = Stakeholder.all
     result = result.where('lower(name) LIKE ?', "%#{terms.downcase}%") if terms.present?
-    result = result.where('party = ?', party)  if party.present?
-    result = result.where('faction = ?', faction)  if faction.present?
+    result = result.where(party: party) if party.present?
+    result = result.where(faction: faction) if faction.present?
     result.sort_by(&:name)
   end
 
