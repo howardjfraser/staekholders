@@ -11,12 +11,14 @@
 
   <%= hidden_field_tag 'redirect_url', report_url %>
 
-
   <%= render partial: 'stakeholders/shared/search_bar', locals: { f: f } %>
 
-  <div style="display: flex;" >
-    <%= render partial: 'results', locals: { parties: @parties, factions: @factions } %>
-    <%= render partial: 'stakeholders/shared/filters', locals: { f: f } %>
-  </div>
+  <%= turbo_frame_tag 'results' do %>
+    <div style="display: flex;" >
+      <%= render partial: 'results', locals: { parties: @parties, factions: @factions } %>
+      <%= render partial: 'stakeholders/shared/filters', locals: { f: f } %>
+    </div>
+
+    <% end %>
 
 <% end %>

@@ -1,16 +1,12 @@
-<%= turbo_frame_tag 'results' do %>
-
-  <div style="width: 320px; padding-right: 32px;">
-    <table style="width:100%;">
-      <tr>
-        <th>Name</th>
-        <th>Party</th>
-        <th>Faction</th>
-      </tr>
-      <% stakeholders.each do |stakeholder| %>
-        <%= render stakeholder %>
-      <% end %>
-    </table>
-  </div>
-
-<% end %>
+<div style="width: 320px; padding-right: 32px;">
+  <table style="width:100%;">
+    <tr>
+      <th>Name</th>
+      <th>Party</th>
+      <th>Faction</th>
+    </tr>
+    <% stakeholders.each do |stakeholder| %>
+      <%= render stakeholder %>
+    <% end %>
+  </table>
+</div>

@@ -1,11 +1,3 @@
 <%= f.search_field :terms, placeholder: 'Search...' %>
-<%= f.label :panel_open do %>
-  <%= f.check_box :panel_open %>
-  Filters
-<% end %>
-
-<% if @search.any_filters? %>
-  <span>*</span>
-<% end %>
 
 <hr>
