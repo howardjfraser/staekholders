@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   root "stakeholders/lists#show"
 
   scope :stakeholders, except: :index do
