@@ -8,7 +8,7 @@
   <% end %>
 
   <% if @search.panel_open %>
-    <div>
+    <div  style="background: lightgray; padding:8px;">
       Party <%= f.select :party, Stakeholder::PARTIES, include_blank: 'All' %><br>
       Faction <%= f.select :faction, Stakeholder::FACTIONS, include_blank: 'All' %><br>
 
