@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-  searchkick
+  searchkick stem_exclusion: ["uniting"]
 end
