@@ -3,15 +3,15 @@ class StakeholderSearch
   include ActiveModel::Attributes
 
   attribute :terms, :string
-  attribute :party, :string
-  attribute :faction, :string
+  attribute :party, array: true
+  attribute :faction, array: true
   attribute :panel_open, :boolean
 
   def search
     result = Stakeholder.all
     result = result.where('lower(name) LIKE ?', "%#{terms.downcase}%") if terms.present?
-    result = result.where(party: party) if party.present?
-    result = result.where(faction: faction) if faction.present?
+    result = result.where(party: party) if party&.any?
+    result = result.where(faction: faction) if faction&.any?
     result.sort_by(&:name)
   end
 
