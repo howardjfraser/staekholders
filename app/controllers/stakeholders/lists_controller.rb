@@ -6,6 +6,7 @@ class Stakeholders::ListsController < ApplicationController
   def update
     store_search_params
     create_list
+    sleep 0.5 # simulate slower server
     render :show
   end
 
